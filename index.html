@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background-image: url('gif.gif');
+            background-size: cover; /* Opcionális: A kép méretezése a háttéren */
+            background-repeat: no-repeat; /* Opcionális: Ismétlés letiltása */
+            background-attachment: scroll; /* Opcionális: Kép rögzítése a képernyőn */
+            user-select: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .box {
+            width: 30px;
+            height: 30px;
+            background-color: lightgray;
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        td {
+            background: grey;
+            opacity: 0.5;
+            font-size: 25px;
+        }
+    </style>
+    <title>Reménytelenség skála</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Reményekkel telve és lelkesedéssel nézek a jövő elébe.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Akár fel is adhatnám, mert nincs semmi, amit tehetnék azért, hogy a dolgok jobbra forduljanak a számomra.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Amikor a dolgok rosszul mennek azzal vigasztalom magam, hogy ez nem tarthat így örökké.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Nem tudom elképzelni, hogy milyen  lenne az életem 10 év múlva.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>A számomra legfontosabb dolgok megvalósítására tudok elég időt szakítani.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Sötéten látom a jövőmet.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Nagyon szerencsés vagyok és bízom benne, hogy nekem több jó jut osztályrészül, mint egy átlagembernek.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Egyszerűen nem vagyok szerencsés nincs okom azt hinni, hogy a jövőben az leszek.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Múltbeli tapasztalataim alaposan felkészítettek a jövőre.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Csak a kellemetlen dolgokat látom a jövőben és nem a kellemeseket.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Nem bízom benne, hogy elérem, amit igazán akarok.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Amikor előre tekintek a jövőre, remélem, hogy boldogabb leszek, mint amilyen most vagyok.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Sosem fognak úgy alakulni a dolgok, ahogy én akarom.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Erősen bízom a jövőben.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Sosem sikerül elérnem azt, amit akarok ezért őrültség bármit is akarni.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Több mint valószínűtlen, hogy igazi elégedettséget érezzek a jövőben.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>A jövő homályosnak és bizonytalannak tűnik számomra.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Több jóra, mint rosszra számítok a jövőben.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Fölösleges igazán törni magam valamiért, amit akarok, mert vaószínüleg úgysem érem el.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Számítok rá, hogy a jövőben sikeres leszek azon a téren, ami a legfontosabb számomra.</td>
+            <td>
+                <div class="box" onclick="toggleValue(this)"></div>
+            </td>
+        </tr>
+    </table>
+
+    <div style="opacity: 0.5; background: grey; font-size: 25px;">
+    <div onclick="calculateScore()" style="width: 100%; border: black solid 1px; text-align: center; background: transparent; cursor: pointer;">Pontszám kiszámítása</div>
+
+    <p style="text-align: center; opacity: 1.5;"><u>Pontszám: <span id="score">0</u></span></p>
+
+    </div>
+    <script>
+       let score = 0;
+
+function toggleValue(box) {
+    if (box.textContent === "") {
+        box.textContent = "I";
+    } else if (box.textContent === "I") {
+        box.textContent = "H";
+    } else {
+        box.textContent = "I";
+    }
+}
+
+function calculateScore() {
+    const boxes = document.querySelectorAll(".box");
+    score = 0;
+
+    if (boxes[0].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[2].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[4].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[5].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[7].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[9].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[12].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[14].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[18].textContent === "H") {
+        score++;
+    }
+
+    if (boxes[1].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[3].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[6].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[8].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[10].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[11].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[13].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[15].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[16].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[17].textContent === "I") {
+        score++;
+    }
+
+    if (boxes[19].textContent === "I") {
+        score++;
+    }
+
+    document.getElementById("score").textContent = score;
+}
+    </script>
+</body>
+</html>
